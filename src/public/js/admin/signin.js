@@ -33,6 +33,7 @@ function validateFields(email, password) {
 
   if (!isEmail(email.value)) {
     emailError.innerHTML = 'Please enter a valid email address'
+    email.classList.add('error')
     return false
   }
   emailError.innerHTML = ''
@@ -40,6 +41,7 @@ function validateFields(email, password) {
   const passwordError = document.getElementById('password-error')
   if (!validatePassword(password.value)) {
     passwordError.innerHTML = 'Please enter a valid password'
+    password.classList.add('error')
     return false
   }
   passwordError.innerHTML = ''

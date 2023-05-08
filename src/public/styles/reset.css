@@ -44,3 +44,7 @@ table {
 body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+textarea:focus, input:focus{
+    outline: none;
+}
