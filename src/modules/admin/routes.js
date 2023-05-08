@@ -20,8 +20,8 @@ route.post('/auth', async (req, res) => {
   res.status(result.data).send(result.message)
 })
 
-route.get('/menu', (req, res) => {
-  res.render('admin/menu')
+route.get('/loja', (req, res) => {
+  res.render('admin/store')
 })
 
 export default route

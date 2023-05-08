@@ -21,7 +21,7 @@ function signIn() {
     body: JSON.stringify(data),
   }).then((response) => {
     if (response.ok) {
-      window.location.href = '/admin/menu'
+      window.location.href = '/admin/loja'
     }
 
     console.log(response)
