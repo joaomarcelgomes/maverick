@@ -21,10 +21,10 @@ function signIn() {
     body: JSON.stringify(data),
   }).then((response) => {
     if (response.ok) {
-      window.location.href = '/admin/loja'
+      window.location.href = '/admin/store'
+    } else {
+      alert('Invalid credentials')
     }
-
-    console.log(response)
   })
 }
 

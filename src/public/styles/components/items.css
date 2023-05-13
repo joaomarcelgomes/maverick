@@ -1,0 +1,84 @@
+.items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.card .available {
+    text-align: right;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.card .title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.card .color {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.card .main {
+
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .price {
+    text-align: right;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.card .actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.card .actions button {
+    margin-left: 10px;
+}
+
+.card .edit {
+    background-color: #f0ad4e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.card .remove {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}

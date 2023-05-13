@@ -1,0 +1,19 @@
+form button {
+    border: 1px #000000 solid;
+    border-radius: 20px;
+
+    font-weight: 600;
+
+    padding: 1% 6%;
+    margin-top: 1%;
+
+    color: black;
+    background-color: #ffffff;
+
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #000000;
+    color: #ffffff;
+}

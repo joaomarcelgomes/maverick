@@ -3,21 +3,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/components/items.css">
+    <link rel="stylesheet" href="../../styles/components/admin/navigation.css">
     <title>Store</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/admin/loja">Store</a>
-                </li>
-                <li>
-                    <a href="/admin/aluguel">Rent</a>
-                </li>
-            </ul>
-        </nav>
-        <a href="/admin/loja/add-carro">Add Car</a>
-    </header>
+    <nav>
+        <a href="/admin/store">Store</a>
+        <a href="/admin/rent">Rent</a>
+        <a href="/admin/store/add-car">Add Car</a>
+    </nav>
+    <main class="items">
+        <% cars.forEach(car => { %>
+            <div class="card">
+            <label class="available"><%= car.date %></label>
+            <img src="<%= car.imageUrl %>" />
+            <div class="main">
+                <label class="title"><%= car.name %></label>
+                <label class="color"><%= car.color %></label>
+            </div>
+            <label class="price">Daily: <%= car.dailyPrice %> | Value: <%= car.value %></label>
+            <div class="actions">
+                <button onclick="edit('<%= car._id %>')" class="edit">Edit</button>
+                <button onclick="remove('<%= car._id %>')" class="remove">Remove</button>
+            </div>
+        </div>
+        <% }); %>
+    </main>
+    <script src="../../js/admin/store.js"></script>
 </body>
 </html>

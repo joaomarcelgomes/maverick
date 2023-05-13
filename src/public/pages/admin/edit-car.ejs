@@ -1,0 +1,54 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/components/field.css">
+    <link rel="stylesheet" href="../../styles/components/button.css">
+    <link rel="stylesheet" href="../../styles/components/admin/navigation.css">
+    <link rel="stylesheet" href="../../styles/admin/add-car.css">
+    <title>Edit Car</title>
+</head>
+<body>
+    <nav>
+        <a href="/admin/store">Back</a>
+    </nav>
+    <form>
+        <div class="row">
+            <div class="field">
+                <label>Image</label>
+                <input id="image-url" type="text" placeholder="https://google.com" value="<%= car.imageUrl %>" />
+            </div>
+            <div class="field">
+                <label>Name</label>
+                <input id="name" placeholder="Maverick" value="<%= car.name %>" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label>Value</label>
+                <input id="value" placeholder="1200.00" value="<%= car.value %>" />
+            </div>
+            <div class="field">
+                <label>Daily price</label>
+                <input id="daily-price" placeholder="100.00" value="<%= car.dailyPrice %>" /> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label>Date</label>
+                <input id="date" type="date" value="<%= car.date %>" />
+            </div>
+            
+            <div class="field">
+                <label>Color</label>
+                <input id="color" placeholder="Blue" value="<%= car.color %>" />
+            </div>
+        </div>
+
+        <button type="button" onclick="edit('<%= car._id %>')">Edit Car</button>
+    </form>
+    <script src="../../js/admin/edit-car.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    width: 100%;
+    max-width: 300px;
+
+    margin: 1% 0;
+}
+
+.field .error {
+    border-color: rgb(238, 54, 54);
+}
+
+.field span {
+    color: rgb(238, 54, 54);
+    padding: 4px 0px 0px 4px;
+}
+
+.field label {
+    font-weight: 400;
+
+    margin-bottom: 4px;
+}
+
+.field input {
+    padding: 16px 0px 16px 20px;
+    border-radius: 4px;
+    border: 1px #dddddd solid;
+    color: #464646;
+
+    transition: 0.3s;
+}
+
+.field input:hover{
+    border-color: #000000;
+}
+
+.field input:focus{
+    border-color: #000000;
+    color: #000000;
+}
