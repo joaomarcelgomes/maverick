@@ -5,7 +5,7 @@ export default async function login(email, password, role) {
   try {
     const exists = await auth(email, password, role)
 
-    if (exists !== '') {
+    if (exists) {
       return genericResult(true, 'User auth', 200)
     }
 
