@@ -6,6 +6,7 @@ import cookieSession from 'cookie-session'
 
 import routes from './routes'
 import admin from './modules/admin/routes'
+import client from './modules/client/routes'
 import { autoMapping } from './core/database/context'
 
 const app = express()
@@ -28,13 +29,29 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', routes)
 
 app.use('/admin/*', (req, res, next) => {
-  if (req.session.user || req.baseUrl !== '/admin/auth') next()
-  else {
+  if (req.session.user || req.baseUrl === '/admin/auth') {
+    next()
+  } else {
     res.redirect('/admin')
   }
 })
 
+app.use('/client/*', (req, res, next) => {
+  if (
+    req.session.user ||
+    req.baseUrl === '/client/signin' ||
+    req.baseUrl === '/client/signup' ||
+    req.baseUrl === '/client/auth' ||
+    req.baseUrl === '/client/register'
+  ) {
+    next()
+  } else {
+    res.redirect('/')
+  }
+})
+
 app.use('/admin', admin)
+app.use('/client', client)
 
 autoMapping()
 

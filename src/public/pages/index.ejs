@@ -5,9 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Inicial</title>
     <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/components/items.css" />
+    <link rel="stylesheet" href="../styles/components/admin/navigation.css" />
     <link rel="icon" type="image/x-icon" href="assets/logo.ico">
 </head>
 <body>
-    <h1>Página Inicial</h1>
+    <nav>
+        <a href="/client/signin">Login</a>
+        <a href="/client/signup">Register</a>
+    </nav>
+    <main class="items">
+        <% cars.forEach(car => { %>
+            <div class="card">
+            <label class="available"><%= car.date %></label>
+            <img src="<%= car.imageUrl %>" />
+            <div class="main">
+                <label class="title"><%= car.name %></label>
+                <label class="color"><%= car.color %></label>
+            </div>
+            <label class="price">Daily: <%= car.dailyPrice %> | Value: <%= car.value %></label>
+        </div>
+        <% }); %>
+    </main>
 </body>
 </html>
