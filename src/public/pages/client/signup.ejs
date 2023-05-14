@@ -1,0 +1,69 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../../styles/reset.css" />
+    <link rel="stylesheet" href="../../styles/components/field.css" />
+    <link rel="stylesheet" href="../../styles/components/button.css" />
+    <link rel="stylesheet" href="../../styles/components/admin/navigation.css" />
+    <link rel="stylesheet" href="../../styles/client/form.css" />
+    <link rel="stylesheet" href="../../styles/admin/signin.css" />
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico" />
+</head>
+<body>
+    <nav>
+        <a href="/client/">Back</a>
+    </nav>
+    <form>
+        <div class="row">
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" />
+                <span id="name-error"></span>
+            </div>
+            <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" />
+                <span id="email-error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label for="genrer">Genrer</label>
+                <input type="text" id="genrer" />
+                <span id="genrer-error"></span>
+            </div>
+            <div class="field">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" />
+                <span id="phone-error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" />
+                <span id="password-error"></span>
+            </div>
+            <div class="field">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" />
+                <span id="confirm-password-error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label for="date-birth">Date of birth</label>
+                <input type="date" id="date-birth" />
+                <span id="date-birth-error"></span>
+            </div>
+        </div>
+        <button onclick="signUp()" type="button">Sign Up</button>
+    </form>
+    <script src="../js/client/signup.js"></script>
+    <script src="../js/components/password.js"></script>
+    <script src="../js/components/email.js"></script>
+</body>
+</html>

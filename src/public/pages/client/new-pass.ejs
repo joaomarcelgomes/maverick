@@ -1,0 +1,41 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/reset.css" />
+    <link rel="stylesheet" href="../../styles/components/field.css" />
+    <link rel="stylesheet" href="../../styles/components/button.css" />
+    <link rel="stylesheet" href="../../styles/admin/signin.css" />
+    <link rel="stylesheet" href="../../styles/components/admin/navigation.css" />
+    <title>Change Password</title>
+</head>
+<body>
+    <nav>
+        <a href="/client/store">Store</a>
+        <a href="/client/rent">My Rent</a>
+        <a href="/client/store/my-account">My Account</a>
+    </nav>
+    <form>
+        <div class="row">
+            <div class="field">
+                <label for="name">Password</label>
+                <input type="password" id="password" />
+                <span id="password-error"></span>
+            </div>
+            <div class="field">
+                <label for="name">New Password</label>
+                <input type="password" id="new-password" />
+                <span id="new-password-error"></span>
+            </div>
+            <div class="field">
+                <label for="name">Confirm Password</label>
+                <input type="password" id="confirm-password" />
+                <span id="confirm-password-error"></span>
+            </div>
+        </div>
+        <button onclick="changePassword()" type="button">Save</button>
+    </form>
+    <script src="../../js/client/my-account.js"></script>
+</body>
+</html>

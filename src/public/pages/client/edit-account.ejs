@@ -1,0 +1,57 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/reset.css" />
+    <link rel="stylesheet" href="../../styles/components/items.css" />
+    <link rel="stylesheet" href="../../styles/components/field.css" />
+    <link rel="stylesheet" href="../../styles/components/button.css" />
+    <link rel="stylesheet" href="../../styles/client/form.css" />
+    <link rel="stylesheet" href="../../styles/admin/signin.css" />
+    <link rel="stylesheet" href="../../styles/components/admin/navigation.css" />
+    <title>My Account</title>
+</head>
+<body>
+    <nav>
+        <a href="/client/store">Store</a>
+        <a href="/client/rent">My Rent</a>
+        <a href="/client/store/my-account">My Account</a>
+    </nav>
+    <form>
+        <div class="row">
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" value="<%= user.name %>" />
+                <span id="name-error"></span>
+            </div>
+            <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" value="<%= user.email %>" />
+                <span id="email-error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label for="genrer">Genrer</label>
+                <input type="text" id="genrer" value="<%= user.genrer %>" />
+                <span id="genrer-error"></span>
+            </div>
+            <div class="field">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" value="<%= user.phone %>" />
+                <span id="phone-error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label for="date-birth">Date of birth</label>
+                <input type="text" id="date-birth" value="<%= user.date %>" />
+                <span id="date-birth-error"></span>
+            </div>
+        </div>
+        <button onclick="editAccount()" type="button">Save</button>
+    </form>
+    <script src="../../js/client/my-account.js"></script>
+</body>
+</html> 
