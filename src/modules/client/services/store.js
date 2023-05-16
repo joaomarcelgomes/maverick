@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import findAll from '../repositories/store'
+import { findAll, findById } from '../repositories/store'
 
 function getDate() {
   const date = new Date()
@@ -14,7 +14,7 @@ function formatDate(date) {
   return `${parts[2]}/${parts[1]}/${parts[0]}`
 }
 
-export default async function search() {
+export async function search() {
   const cars = await findAll()
 
   const date = getDate()
@@ -22,10 +22,18 @@ export default async function search() {
   cars.forEach((car) => {
     if (car.date === date) {
       car.date = 'Available'
-    } else {
+    } else if (new Date(date) < new Date(car.date)) {
       car.date = `Unavailable | Available on: ${formatDate(car.date)}`
+    } else {
+      car.date = `Unavailable`
     }
   })
 
   return cars
+}
+
+export async function searchCar(id) {
+  const car = await findById(id)
+
+  return car
 }

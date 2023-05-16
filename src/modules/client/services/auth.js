@@ -21,7 +21,15 @@ export async function createUser(name, date, genrer, phone, email, password) {
   hash.update(password)
   const passwordHash = hash.digest('hex')
 
+  const user = await findUserByEmail(email)
+
+  if (user) {
+    return false
+  }
+
   await create(name, date, genrer, phone, email, passwordHash, 'client')
+
+  return true
 }
 
 function formatDate(date) {

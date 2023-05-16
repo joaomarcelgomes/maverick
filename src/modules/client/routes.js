@@ -8,7 +8,9 @@ import {
   editAccount,
 } from './controllers/auth'
 
-import findAllCars from './controllers/store'
+import { findAllCars, findCarById } from './controllers/store'
+
+import { reserve, findAllCarsWithRent } from './controllers/rent'
 
 const route = express.Router()
 
@@ -24,6 +26,20 @@ route.get('/store', async (req, res) => {
   const result = await findAllCars()
 
   res.render('client/store', { cars: result.data })
+})
+
+route.get('/store/to-rent', async (req, res) => {
+  const result = await findCarById(req.query.id)
+
+  res.render('client/rent', { car: result.data })
+})
+
+route.get('/rent', async (req, res) => {
+  const email = req.session.user
+
+  const result = await findAllCarsWithRent(email)
+
+  res.render('client/my-rent', { cars: result.data })
 })
 
 route.get('/store/my-account', async (req, res) => {
@@ -82,6 +98,23 @@ route.patch('/my-account/change-password', async (req, res) => {
   const email = req.session.user
 
   const result = await changePassword(email, newPassword)
+
+  res.status(result.data).send(result.message)
+})
+
+route.post('/store/reserve', async (req, res) => {
+  const email = req.session.user
+
+  const { id, value, initialDate, finalDate, payment } = req.body
+
+  const result = await reserve(
+    email,
+    id,
+    value,
+    initialDate,
+    finalDate,
+    payment
+  )
 
   res.status(result.data).send(result.message)
 })

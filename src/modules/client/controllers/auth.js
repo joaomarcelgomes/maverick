@@ -23,7 +23,11 @@ export async function login(email, password, role) {
 
 export async function register(name, date, genrer, phone, email, password) {
   try {
-    await createUser(name, date, genrer, phone, email, password)
+    const result = await createUser(name, date, genrer, phone, email, password)
+
+    if (!result) {
+      return genericResult(false, 'User already exists', 409)
+    }
 
     return genericResult(true, 'User created', 201)
   } catch (error) {
