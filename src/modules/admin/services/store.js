@@ -35,6 +35,11 @@ function getDate() {
   return `${year}-${month}-${day}`
 }
 
+function formatDate(date) {
+  const parts = date.split('-')
+  return `${parts[2]}/${parts[1]}/${parts[0]}`
+}
+
 export async function search() {
   const cars = await findAll()
 
@@ -43,8 +48,10 @@ export async function search() {
   cars.forEach((car) => {
     if (car.date === date) {
       car.date = 'Available'
+    } else if (new Date(date) < new Date(car.date)) {
+      car.date = `Unavailable | Available on: ${formatDate(car.date)}`
     } else {
-      car.date = 'Unavailable'
+      car.date = `Unavailable`
     }
   })
 

@@ -9,6 +9,8 @@ import {
   putCar,
 } from './controllers/store'
 
+import { findAllCarsWithRent, reserve } from './controllers/rent'
+
 const route = express.Router()
 
 route.get('/', (req, res) => {
@@ -37,12 +39,26 @@ route.get('/store/add-car', (req, res) => {
   res.render('admin/add-car')
 })
 
+route.get('/rent', async (req, res) => {
+  const result = await findAllCarsWithRent()
+
+  res.render('admin/rent', { cars: result.data })
+})
+
 route.get('/store/edit-car', async (req, res) => {
   const result = await findCarToEdit(req.query.id)
 
   console.log(req.query.id)
 
   res.render('admin/edit-car', { car: result.data })
+})
+
+route.patch('/rent', async (req, res) => {
+  const { rentId, status } = req.body
+
+  const result = await reserve(rentId, status)
+
+  res.status(result.data).send(result.message)
 })
 
 route.post('/store/add-car', async (req, res) => {
