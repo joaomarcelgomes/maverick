@@ -1,6 +1,6 @@
 import express from 'express'
 
-import findAllCars from '../modules/client/controllers/store'
+import { findAllCars } from '../modules/client/controllers/store'
 
 const route = express.Router()
 

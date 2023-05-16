@@ -82,3 +82,11 @@
     border-radius: 5px;
     padding: 5px 10px;
 }
+
+.card .confirm {
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}

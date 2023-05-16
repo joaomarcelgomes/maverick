@@ -1,0 +1,73 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/reset.css" />
+    <link rel="stylesheet" href="../../styles/components/items.css" />
+    <link rel="stylesheet" href="../../styles/components/field.css" />
+    <link rel="stylesheet" href="../../styles/components/button.css" />
+    <link rel="stylesheet" href="../../styles/client/form.css" />
+    <link rel="stylesheet" href="../../styles/admin/signin.css" />
+    <link rel="stylesheet" href="../../styles/components/admin/navigation.css" />
+    <title>My Account</title>
+</head>
+<body>
+    <nav>
+        <a href="/client/store">Store</a>
+        <a href="/client/rent">My Rent</a>
+        <a href="/client/store/my-account">My Account</a>
+    </nav>
+    <form>
+        <div class="row">
+            <div class="field">
+                <label>Name</label>
+                <input disabled type="text" value="<%= car.name %>" />
+            </div>
+            <div class="field">
+                <label>Color</label>
+                <input disabled type="text" value="<%= car.color %>" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label>Initial reservation</label>
+                <input type="date" id="initial-reser" />
+            </div>
+            <div class="field">
+                <label>Final reservation</label>
+                <input type="date" id="final-reser" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label>Daily price</label>
+                <input disabled type="text" id="daily-price" value="<%= car.dailyPrice %>" />
+            </div>
+            <div class="field">
+                <label>Value</label>
+                <input disabled type="text" value="<%= car.value %>" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <label>Payment Mode</label>
+                <div>
+                    <select id="payment-mode">
+                        <option value="card">Card</option>
+                        <option value="boleto">Boleto</option>
+                        <option value="pix">PIX</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label>Reservation amount</label>
+                <input disabled type="text" id="reservation-value" />
+            </div>
+        </div>
+        
+        <button onclick="reserve('<%= car._id %>')" type="button">Confirm Reservation</button>
+    </form>
+    <script src="../../js/client/rent.js"></script>
+</body>
+</html>

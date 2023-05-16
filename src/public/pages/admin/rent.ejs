@@ -6,30 +6,35 @@
     <link rel="stylesheet" href="../../styles/reset.css">
     <link rel="stylesheet" href="../../styles/components/items.css">
     <link rel="stylesheet" href="../../styles/components/admin/navigation.css">
-    <title>Store</title>
+    <title>Rents</title>
 </head>
 <body>
     <nav>
-        <a href="/client/store">Store</a>
-        <a href="/client/rent">My Rent</a>
-        <a href="/client/store/my-account">My Account</a>
+        <a href="/admin/store">Store</a>
+        <a href="/admin/rent">Rent</a>
+        <a href="/admin/store/add-car">Add Car</a>
     </nav>
     <main class="items">
         <% cars.forEach(car => { %>
             <div class="card">
-            <label class="available"><%= car.date %></label>
             <img src="<%= car.imageUrl %>" />
             <div class="main">
                 <label class="title"><%= car.name %></label>
                 <label class="color"><%= car.color %></label>
             </div>
             <label class="price">Daily: <%= car.dailyPrice %> | Value: <%= car.value %></label>
-            <div class="actions">
-                <button onclick="rent('<%= car._id %>')" class="edit">To Rent</button>
-            </div>
+            <label class="price">Initial: <%= car.rent.initialDate %> | Final: <%= car.rent.finalDate %> </label>
+            <label class="price"><%= car.rent.status %></label>
+
+            <% if(car.rent.status == "waiting") {%>
+                <div class="actions">
+                    <button onclick="updateRent('<%= car.rent.id %>', 'confirm')" class="confirm">Confirm</button>
+                    <button onclick="updateRent('<%= car.rent.id %>', 'reject')" class="remove">Reject</button>
+                </div>
+            <%}%>
         </div>
         <% }); %>
     </main>
-    <script src="../../js/client/rent.js"></script>
+    <script src="../../js/admin/rent.js"></script>
 </body>
 </html>

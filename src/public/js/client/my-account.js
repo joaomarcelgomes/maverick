@@ -1,3 +1,6 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 function navigationChangePassword() {
   window.location.href = '/client/store/pass'
 }

@@ -1,3 +1,7 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 function signUp() {
   const name = document.getElementById('name')
   const email = document.getElementById('email')
@@ -31,7 +35,7 @@ function signUp() {
     if (data.ok) {
       window.location.href = '/'
     } else {
-      alert(data.message)
+      alert('This email is already registered')
     }
   })
 }

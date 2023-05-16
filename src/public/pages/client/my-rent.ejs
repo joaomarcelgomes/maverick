@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../../styles/reset.css">
     <link rel="stylesheet" href="../../styles/components/items.css">
     <link rel="stylesheet" href="../../styles/components/admin/navigation.css">
-    <title>Store</title>
+    <title>My Rent</title>
 </head>
 <body>
     <nav>
@@ -17,19 +17,16 @@
     <main class="items">
         <% cars.forEach(car => { %>
             <div class="card">
-            <label class="available"><%= car.date %></label>
             <img src="<%= car.imageUrl %>" />
             <div class="main">
                 <label class="title"><%= car.name %></label>
                 <label class="color"><%= car.color %></label>
             </div>
             <label class="price">Daily: <%= car.dailyPrice %> | Value: <%= car.value %></label>
-            <div class="actions">
-                <button onclick="rent('<%= car._id %>')" class="edit">To Rent</button>
-            </div>
+            <label class="price">Initial: <%= car.rent.initialDate %> | Final: <%= car.rent.finalDate %> </label>
+            <label class="price"><%= car.rent.status %></label>
         </div>
         <% }); %>
     </main>
-    <script src="../../js/client/rent.js"></script>
 </body>
 </html>
